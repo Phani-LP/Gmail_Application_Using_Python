@@ -1,14 +1,21 @@
-import smtplib
-#simple mail transfer protocal
-
-#creating a server, because we are 
-# sending gmail from a 3rd party application(means not from gmail) 
-# so we need a connectin to the server
-
-#gmail service server address, and port number
-server = smtplib.SMTP('smtp.gmail.com', 587) 
-server.starttls()
-server.login('n1@gmail.com','kghv yhei ttgo sqld')
-
-server.sendmail('n1@gmail.com','n2@gmail.com',"We made it oooohhhoo!!")
-print("Mail sent successfully")
+class PythonGmail:
+    def __init__(self):
+        self.senderEmail = input("sender mail: ")
+        self.receiverEmail = input("receiver mail: ")# add no.of receiptents
+        self.subject = input("Subject: ")
+        self.text = input("Message: ")
+        self.message = f"{self.subject}\n\n{self.text}"
+    def sendmessage(self):
+        import smtplib
+        server = smtplib.SMTP('smtp.gmail.com',587)
+        server.starttls()
+        server.login(self.senderEmail, 'kghv yhei ttgo sqld')
+        server.sendmail(self.senderEmail, self.receiverEmail, self.message)
+        return "Message sent successfully."
+            
+    def attachFiles(self):
+        pass
+    def encryptionPhase(self):
+        pass
+obj1 = PythonGmail()
+print(obj1.sendmessage())
