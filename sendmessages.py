@@ -6,16 +6,19 @@ class PythonGmail:
         self.text = input("Message: ")
         self.message = f"{self.subject}\n\n{self.text}"
     def sendmessage(self):
-        import smtplib
-        server = smtplib.SMTP('smtp.gmail.com',587)
-        server.starttls()
-        server.login(self.senderEmail, 'kghv yhei ttgo sqld')
-        server.sendmail(self.senderEmail, self.receiverEmail, self.message)
-        return "Message sent successfully."
-            
+        try:
+            import smtplib
+            server = smtplib.SMTP('smtp.gmail.com',587)
+            server.starttls()
+            server.login(self.senderEmail, 'kghv yhei ttgo sqld')
+            server.sendmail(self.senderEmail, self.receiverEmail, self.message)
+            return "Message sent successfully."
+        except Exception as e:
+            print("Error: ",e)      
     def attachFiles(self):
         pass
     def encryptionPhase(self):
         pass
 obj1 = PythonGmail()
+print(obj1.sendmessage())
 print(obj1.sendmessage())
