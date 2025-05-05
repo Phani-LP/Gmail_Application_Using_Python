@@ -10,7 +10,7 @@ class PythonGmail:
             import smtplib
             server = smtplib.SMTP('smtp.gmail.com',587)
             server.starttls()
-            server.login(self.senderEmail, 'kghv yhei ttgo sqld')
+            server.login(self.senderEmail, 'kghv ilil rsta zbcd')
             server.sendmail(self.senderEmail, self.receiverEmail, self.message)
             return "Message sent successfully."
         except Exception as e:
